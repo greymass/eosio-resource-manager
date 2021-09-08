@@ -1,0 +1,110 @@
+###################################
+# General configuration
+###################################
+name = 'eosio-resource-manager'
+api = 'https://jungle3.greymass.com'
+
+###################################
+# Required - Account/authority of account managing resources
+#
+# This is the one account that performs rentals for all accounts its monitoring.
+###################################
+actor = 'rentals.gm'
+permission = 'rent'
+key = 'YOUR_PRIVATE_KEY'
+
+###################################
+# Required - Operating configuration
+###################################
+
+# Operating Mode - must be either `rex` or `powerup`
+mode = 'powerup'
+# mode = 'rex'
+
+# Interval to check resource levels at.
+interval = 15000
+
+# REX mode only - the amount of tokens to spend per rental on a specific resource
+# cpu_spend = '0.2500 EOS'
+# net_spend = '0.0010 EOS'
+
+###################################
+# Optional - Slack Integration
+###################################
+# webhook url and channel
+# slack = { url = 'your_webhook_url', channel = '' }
+# explorer url to generate links to transactions
+# explorer = 'https://jungle3.bloks.io'
+
+###################################
+# Account Definition
+# 
+# This block can be repeated multiple times in the config to monitor multiple accounts.
+###################################
+[[accounts]]
+# ----------
+# General account configuration
+# ----------
+# The on-chain account name to monitor and rent resources for
+account = 'rentals.gm'
+# If current percentage used of CPU/NET exceeds this, perform a rental
+threshold = 0.90 # 90% current usage will trigger a rental
+# ----------
+# Resource minimum and maximum values
+# ----------
+# Ensure CPU value (in μs) is always above this value
+cpu_minimum = 25000
+# Ensure CPU value (in μs) does not exceed this value, 0 = disable maximum
+cpu_maximum = 0
+# Ensure NET value (in bytes) is always above this value
+net_minimum = 10000
+# Ensure NET value (in bytes) does not exceed this value, 0 = disable maximum
+net_maximum = 0
+# ----------
+# PowerUp specific configuration for this account
+# ----------
+# Increment CPU (in μs) by this amount each powerup
+cpu_increment = 20000 
+# Increment NET (in bytes) by this amount each powerup
+net_increment = 10000000
+# Maximum acceptable total payment value for the powerup
+max_payment = '0.0100 EOS'
+
+###################################
+# Account Definition
+# 
+# This block can be repeated multiple times in the config to monitor multiple accounts.
+###################################
+[[accounts]]
+# ----------
+# General account configuration
+# ----------
+# The on-chain account name to monitor and rent resources for
+account = 'jestatest222'
+# If current percentage used of CPU/NET exceeds this, perform a rental
+threshold = 0.90 # 90% current usage will trigger a rental
+# ----------
+# Resource minimum and maximum values
+# ----------
+# Ensure CPU value (in μs) is always above this value
+cpu_minimum = 100000
+# Ensure CPU value (in μs) does not exceed this value, 0 = disable maximum
+cpu_maximum = 0
+# Ensure NET value (in bytes) is always above this value
+net_minimum = 100000099
+# Ensure NET value (in bytes) does not exceed this value, 0 = disable maximum
+net_maximum = 0
+# ----------
+# PowerUp specific configuration for this account
+# ----------
+# Increment CPU (in μs) by this amount each powerup
+cpu_increment = 20000 
+# Increment NET (in bytes) by this amount each powerup
+net_increment = 10000000
+# Maximum acceptable total payment value for the powerup
+max_payment = '0.0100 EOS'
+
+# logging output, can be repeated
+[[log]]
+level = 'info'
+out = 'stdout'

@@ -1,0 +1,32 @@
+{
+  "name": "eosio-resource-manager",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "@greymass/eosio": "^0.4.0",
+    "@greymass/eosio-resources": "^0.6.0",
+    "@types/bn.js": "^5.1.0",
+    "@types/lodash": "^4.14.146",
+    "@types/needle": "^2.0.4",
+    "bunyan": "^2.0.2",
+    "config": "^3.1.0",
+    "lodash": "^4.17.15",
+    "needle": "^2.4.0",
+    "node-fetch": "^2.6.0",
+    "stream-array": "^1.1.2",
+    "toml": "^2.3.3"
+  },
+  "devDependencies": {
+    "@types/bunyan": "^1.8.6",
+    "@types/config": "^0.0.34",
+    "@types/node": "^12.0.8",
+    "@types/text-encoding": "^0.0.35",
+    "onchange": "^6.0.0",
+    "ts-node": "^8.3.0",
+    "tslint": "^6.1.3",
+    "typescript": "^3.5.2"
+  }
+}
